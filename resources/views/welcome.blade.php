@@ -81,7 +81,7 @@
 
         @font-face {
             font-family: 'Le Jour Script';
-            src: url("{{ asset('fonts/Le Jour Script.otf') }}") format('truetype');
+            src: url("{{ secure_asset('fonts/Le Jour Script.otf') }}") format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -229,7 +229,7 @@
 
             @font-face {
                 font-family: 'Le Jour Script';
-                src: url("{{ asset('fonts/Le Jour Script.otf') }}") format('truetype');
+                src: url("{{ secure_asset('fonts/Le Jour Script.otf') }}") format('truetype');
                 font-weight: normal;
                 font-style: normal;
             }
@@ -341,7 +341,7 @@
             <div class="rsvp-title">RSVP</div>
             <div class="rsvp-subtitle">Let us know if you'll be attending!</div>
 
-            <form id="submitForm" class="rsvp-form" action="{{ route('submit') }}" method="POST">
+            <form id="submitForm" class="rsvp-form" action="{{ url()->secure('submit') }}" method="POST">
                 @csrf
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
@@ -362,7 +362,7 @@
                     const name = document.querySelector('[name="name"]').value;
                     const attending = document.querySelector('[name="attending"]').value;
 
-                    fetch('{{ route('submit') }}', {
+                    fetch('{{ url()->secure('submit') }}', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
