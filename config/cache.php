@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_STORE', 'database'),
+    'default' => env('CACHE_STORE', 'file'),
 
     /*
     |--------------------------------------------------------------------------
@@ -33,18 +33,18 @@ return [
 
     'stores' => [
 
-        'array' => [
-            'driver' => 'array',
-            'serialize' => false,
-        ],
+//        'array' => [
+//            'driver' => 'array',
+//            'serialize' => false,
+//        ],
 
-        'database' => [
-            'driver' => 'database',
-            'connection' => env('DB_CACHE_CONNECTION'),
-            'table' => env('DB_CACHE_TABLE', 'cache'),
-            'lock_connection' => env('DB_CACHE_LOCK_CONNECTION'),
-            'lock_table' => env('DB_CACHE_LOCK_TABLE'),
-        ],
+//        'database' => [
+//            'driver' => 'database',
+//            'connection' => env('DB_CACHE_CONNECTION'),
+//            'table' => env('DB_CACHE_TABLE', 'cache'),
+//            'lock_connection' => env('DB_CACHE_LOCK_CONNECTION'),
+//            'lock_table' => env('DB_CACHE_LOCK_TABLE'),
+//        ],
 
         'file' => [
             'driver' => 'file',
