@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://wedding-appointment-9b195979be8c.herokuapp.com/'),
 
     /*
     |--------------------------------------------------------------------------
