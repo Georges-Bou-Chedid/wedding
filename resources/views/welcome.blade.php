@@ -352,12 +352,13 @@
 
             // Toggle play/pause on button click
             audioButton.addEventListener("click", function () {
-                if (player.paused) {
-                    player.play();  // Play if paused
-                    // audioButton.textContent = "♫"; // Unmute icon
+                if (player.muted) {
+                    player.muted = false; // Unmute
+                    player.play();
+                } else if (player.paused) {
+                    player.play();
                 } else {
                     player.pause();
-                    // audioButton.textContent = "🔇"; // Mute icon
                 }
             });
         });
