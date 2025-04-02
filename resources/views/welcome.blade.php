@@ -9,7 +9,7 @@
 
     <meta property="og:title" content="Charbel and Rita's Wedding">
     <meta property="og:description" content="You're invited to celebrate the love between Charbel and Rita">
-    <meta property="og:image" content="{{ asset('images/main.jpg') }}">
+    <meta property="og:image" content="{{ secure_asset('images/main-compressed.jpg') }}">
     <meta property="og:url" content="https://invimagic-25a76eef47e3.herokuapp.com/charbel-and-rita">
 
     <link rel="icon" href="{{ asset('rounded-invimagic.png') }}" type="image/png">
