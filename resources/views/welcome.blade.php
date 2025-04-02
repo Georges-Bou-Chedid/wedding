@@ -3,389 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Love Story: Charbel & Rita</title>
+    <title>Charbel and Rita's Wedding</title>
+
+    <meta name="description" content="You're invited to celebrate the love between Charbel and Rita">
+
+    <meta property="og:title" content="Charbel and Rita's Wedding">
+    <meta property="og:description" content="You're invited to celebrate the love between Charbel and Rita">
+    <meta property="og:image" content="{{ asset('images/background.jpg') }}">
+    <meta property="og:url" content="https://invimagic-25a76eef47e3.herokuapp.com/charbel-and-rita">
+
+    <link rel="icon" href="{{ asset('rounded-invimagic.png') }}" type="image/png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow: hidden; /* Prevents the body from scrolling freely */
-            scroll-behavior: smooth; /* Ensures smooth scrolling between pages */
-        }
-
         body {
-            background-image: url("{{ asset('images/background.jpg') }}");
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            /*display: flex;*/
-            background-position: center center;
-            background-attachment: fixed;
-            flex-direction: column; /* Stack the pages vertically */
-            height: 100%;
-            scroll-snap-type: y mandatory; /* Enables scroll snapping on vertical scroll */
-            overflow-y: scroll; /* Allows scrolling vertically */
+            font-family: 'Lato', sans-serif;
         }
-
-        .welcomePage {
-            width: 100%;
-            height: 100%; /* Full viewport height */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        input {
             text-align: center;
-            position: relative;
-            scroll-snap-align: start;
         }
-
-        .welcomeContent {
-            width: 100%;
-            height: 100%; /* Ensures it takes full height */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: start; /* Aligns 'Save The Date' at the top */
-            position: relative;
-            z-index: 2;
-            padding: 15px;
+        .curved-bottom {
+            clip-path: ellipse(80% 100% at center top);
         }
-
-        .save-the-date {
-            align-self: center; /* Centers horizontally */
+        .wedding-shape {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 75% 90%, 50% 100%, 25% 90%, 0% 80%);
         }
-
-        .couple-names {
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        h1 {
-            font-family: 'Times New Roman', serif;
-            font-size: 4.5vw;
-            font-weight: 500;
-            text-transform: uppercase;
-            margin: 0; /* Removes default margin */
-            padding: 0;
-        }
-
-        h2 {
-            font-family: 'Times New Roman', serif;
-            font-size: 1.8vw;
-            font-weight: 300;
-            text-transform: uppercase;
-            margin-top: 0;
-        }
-
         @font-face {
             font-family: 'Le Jour Script';
             src: url("{{ secure_asset('fonts/Le Jour Script.otf') }}") format('truetype');
             font-weight: normal;
             font-style: normal;
         }
-
-        .theScript {
-            font-family: 'Le Jour Script', cursive;
-            font-size: 3.2vw;
-            text-transform: capitalize;
-            margin-right: 8px;
-        }
-
         .script {
             font-family: 'Le Jour Script', cursive;
-            font-size: 5vw;
-            text-transform: capitalize;
         }
-
-        .wedding-details {
-            position: absolute;
-            bottom: 20px;
-            right: 30px;
-            text-align: center; /* Align text to the right */
-            font-family: 'Times New Roman', serif;
-            font-size: 1.6vw;
+        #songList {
+            list-style: none;
+            padding: 0;
         }
-
-        /* Button */
-        .churchButton {
-            font-family: 'Times New Roman', serif;
-            background-color: gold;
-            color: black;
-            font-size: 1vw;
-            padding: 15px;
-            border: none;
-            text-transform: uppercase;
-            border-radius: 20px;
-            font-weight: bold;
+        #songList li {
+            padding: 10px;
             cursor: pointer;
-            transition: 0.3s;
-            text-decoration: none;
         }
-
-        .churchButton:hover {
-            background-color: #d4af37;
+        #songList li:hover {
+            background-color: #f0f0f0;
         }
-
-        .page {
-            width: 100%;
-            height: 100%; /* Ensure each page is the full height of the viewport */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            scroll-snap-align: start;
-        }
-
-        .content {
-            position: relative;
-            z-index: 2;
-            padding: 20px;
-        }
-
-        .details {
-            font-family: 'Times New Roman', serif;
-            font-size: 2.5vw;
-        }
-
-        /* Button */
-        .button {
-            font-family: 'Times New Roman', serif;
-            background-color: gold;
-            color: black;
-            font-size: 1.4vw;
-            text-transform: uppercase;
-            padding: 20px;
-            border: none;
-            border-radius: 20px;
+        #songList li.active {
+            background-color: #e0e0e0;
             font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            text-decoration: none;
         }
-
-        .button:hover {
-            background-color: #d4af37;
-        }
-
-        /* Title */
-        .rsvp-title {
-            font-family: 'Times New Roman', serif;
-            font-size: 2.7vw; /* Adjusts based on screen size */
-            font-weight: bold;
-            text-transform: uppercase;
-            color: gold;
-            margin-bottom: 20px;
-        }
-
-        /* Subtitle */
-        .rsvp-subtitle {
-            font-family: 'Times New Roman', serif;
-            font-size: 1.8vw;
-            margin-bottom: 30px;
-        }
-
-        /* Form */
-        .rsvp-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        label {
-            font-family: 'Times New Roman', serif;
-            font-size: 1.6vw;
-        }
-
-        .message {
-            font-family: 'Times New Roman', serif;
-            font-size: 1.3vw;
-        }
-
-        input, select {
-            font-family: 'Times New Roman', serif;
-            padding: 15px;
-            font-size: 1.6vw;
-            width: 20%;
-            min-width: 300px; /* Ensures better visibility on large screens */
-            border-radius: 10px;
-            border: none;
-        }
-
-        /* Responsive Design for Small Screens */
-        @media (max-width: 768px) {
-            h1 {
-                font-family: 'Times New Roman', serif;
-                font-size: 9.5vw;
-            }
-
-            h2 {
-                font-family: 'Times New Roman', serif;
-                font-size: 4.5vw;
-            }
-
-            @font-face {
-                font-family: 'Le Jour Script';
-                src: url("{{ secure_asset('fonts/Le Jour Script.otf') }}") format('truetype');
-                font-weight: normal;
-                font-style: normal;
-            }
-
-            .theScript {
-                font-family: 'Le Jour Script', cursive;
-                font-size: 8.5vw;
-            }
-
-            .script {
-                font-family: 'Le Jour Script', cursive;
-                font-size: 9.5vw;
-            }
-
-            .wedding-details {
-                font-size: 4vw;
-            }
-
-            .churchButton {
-                font-size: 3vw;
-                padding: 12px;
-            }
-
-            .details {
-                font-family: 'Times New Roman', serif;
-                font-size: 5.5vw;
-            }
-
-            /* Button */
-            .button {
-                font-size: 3.4vw;
-                padding: 14px;
-            }
-
-            .rsvp-title {
-                font-size: 6.5vw;
-            }
-
-            .rsvp-subtitle {
-                font-size: 4.5vw;
-            }
-
-            label {
-                font-size: 4vw;
-            }
-
-            .message {
-                font-size: 3.2vw;
-            }
-
-            input, select {
-                width: 20%;
-                min-width: 160px;
-                font-size: 4vw;
-            }
-        }
-
     </style>
+    <script>
+        // Countdown Timer Logic
+        function countdown() {
+            const weddingDate = new Date("May 31, 2025 18:30:00").getTime();
+            const interval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    document.getElementById("countdown").innerHTML = "It's our wedding day!";
+                } else {
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    document.getElementById("days").innerText = days.toString().padStart(2, '0');
+                    document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+                    document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+                    document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+                }
+            }, 1000);
+        }
+    </script>
 </head>
-<body>
-
-<!-- First Page (Save The Date) -->
-<div class="welcomePage">
-    <div class="welcomeContent">
-        <h1 class="save-the-date">Save <span class="theScript">The</span> Date</h1>
-        <h2>FOR THE WEDDING OF</h2>
-        <br>
-        <br>
-        <p class="script couple-names">Charbel & Rita</p>
-        <div class="wedding-details">
-            <p>May 31, 2025</p>
-            <p>Saint Augustin, Ain Saadeh</p>
-            <p>06:30 P.M.</p>
-            <a href="https://maps.app.goo.gl/Fb2eEWgvP3pJGbkv6" target="_blank" class="churchButton">
-                VIEW LOCATION
-            </a>
+<body class="text-gray-800" onload="countdown()">
+<!-- Main Section with Background Image -->
+<section class="relative bg-cover bg-center wedding-shape" style="background-image: url('{{ asset('images/background.jpg') }}'); height: 100vh;">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute inset-0 flex items-center justify-center text-center text-white">
+        <div>
+            <h1 class="text-4xl script font-bold">Charbel & Rita</h1>
+            <p class="text-lg mt-2">Are Getting Married!</p>
+            <p class="text-xl mt-2 font-semibold">Saturday, May 31th, 2025</p> <!-- Date added here -->
+            <div style="text-align: center; padding: 30px;">
+                <div id="countdown" class="text-3xl mt-10" style="display: flex; justify-content: center;">
+                    <div style="margin: 0 10px;">
+                        <span id="days" class="font-semibold">00</span>
+                        <div style="font-size: 0.34em;">DAYS</div>
+                    </div>
+                    <div>
+                        <span class="font-semibold">:</span>
+                    </div>
+                    <div style="margin: 0 10px;">
+                        <span id="hours" class="font-semibold">00</span>
+                        <div style="font-size: 0.34em;">HOURS</div>
+                    </div>
+                    <div>
+                        <span class="font-semibold">:</span>
+                    </div>
+                    <div style="margin: 0 10px;">
+                        <span id="minutes" class="font-semibold">00</span>
+                        <div style="font-size: 0.34em;">MINUTES</div>
+                    </div>
+                    <div>
+                        <span class="font-semibold">:</span>
+                    </div>
+                    <div style="margin: 0 10px;">
+                        <span id="seconds" class="font-semibold">00</span>
+                        <div style="font-size: 0.34em;">SECONDS</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8">
+                <a href="#rsvp" class="bg-pink-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md hover:bg-pink-600">RSVP Now</a>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- Second Page (More Details) -->
-<div class="page">
-    <div class="content">
-        <div class="details">
-            <p>A Night of Love & Joy at</p>
-            <p>Santa Preri – Jbeil</p>
-            <a href="https://maps.app.goo.gl/YYXRPm89CANrY1Fn8" target="_blank" class="button">
-                VIEW LOCATION
-            </a>
-        </div>
+<!-- Bible Section -->
+<section id="bible-verse" class="p-8 bg-white">
+    <div class="max-w-4xl mx-auto text-center md:p-10" style="font-family: 'Cormorant Upright', serif;">
+        <p class="text-xl text-gray-600 mb-4 md:mb-6">"And over all these virtues put on love, which binds them all together in perfect unity."</p>
+        <p class="text-xl text-gray-600">Colossians 3:14</p>
     </div>
-</div>
+</section>
 
-<!-- Third Page (More Details) -->
-<div class="page">
-    <div class="content">
-        <div class="details">
-            <p class="rsvp-subtitle">Your love, laughter, and presence are the best gifts. <br>However, if you wish to contribute, below are the details.</p>
-            <p class="rsvp-title">WHISH ACCOUNT</p>
-            <p class="rsvp-subtitle">Acc# XXXX</p>
-        </div>
+<!-- Schedule Section -->
+<section id="schedule" class="p-8 bg-gradient-to-b from-gray-100 to-gray-200">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Schedule</h2>
+        <ul class="mt-6 space-y-4 text-lg text-gray-700">
+            <li><span class="font-bold">6:30 PM</span> - Ceremony</li>
+            <li>
+                Saint Augustin, Ain Saadeh
+                <a href="https://maps.app.goo.gl/Fb2eEWgvP3pJGbkv6" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </a>
+            </li>
+            <li><span class="font-bold">8:00 PM</span> - A Night of Love & Joy</li>
+            <li>
+                Santa Preri, Jbeil
+                <a href="https://maps.app.goo.gl/YYXRPm89CANrY1Fn8" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
     </div>
-</div>
+</section>
 
-<!-- Fourth Page (More Details) -->
-<div class="page">
-    <div class="content">
-        <div class="details">
-            <div class="rsvp-title">RSVP</div>
-            <div class="rsvp-subtitle">Let us know if you'll be attending!</div>
+<!-- Division Section -->
+<section id="division">
+    <div class="max-w-4xl mx-auto text-center">
+        <p class="text-lg">♡♡♡♡♡</p>
+    </div>
+</section>
 
-            <form id="submitForm" class="rsvp-form" action="{{ url()->secure('submit') }}" method="POST">
-                @csrf
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+<!-- Gift Registry Section -->
+<section id="giftRegistry" class="p-8 bg-gradient-to-b from-gray-200 to-gray-100">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Gift Registry</h2>
+        <ul class="mt-6 space-y-4 text-lg text-gray-700">
+            <li>Your presence is the most cherished gift. However, for those who wish to contribute, our Whish Money account detail are below</li>
+            <h2 class="text-2xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Whish Account</h2>
+            <li>
+            Acc# 20000
+            <div style="display: inline-flex; align-items: center; margin-left: 10px;">
+                <button id="copyButton" style="cursor: pointer; background: transparent; border: 1px solid #ccc; padding: 4px 6px; border-radius: 5px; color: #333; font-size: 0.7em;">
+                Copy
+                </button>
+            </div>
+            </li>
 
-                <label for="attending">Are u attending?</label>
-                <select id="attending" name="attending">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
+<script>
+  const copyButton = document.getElementById('copyButton');
+  const accountNumber = "20000"; // Store the account number directly
 
-                <button type="submit" style="margin-top: 10px" class="button">SEND RSVP</button>
-            </form>
-            <div id="rsvpMessage" style="margin-top: 20px" class="message"></div>
+  copyButton.addEventListener('click', () => {
+    const tempInput = document.createElement('input');
+    tempInput.value = accountNumber;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    alert('Copied to clipboard'); // Optional user feedback
+  });
 
-            <script>
-                document.getElementById('submitForm').addEventListener('submit', function (event) {
-                    event.preventDefault();
-                    const name = document.querySelector('[name="name"]').value;
-                    const attending = document.querySelector('[name="attending"]').value;
+</script>
+        </ul>
+    </div>
+</section>
 
-                    fetch('{{ url()->secure('submit') }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
-                        },
-                        body: JSON.stringify({
-                            name: name,
-                            attending: attending
-                        })
+<!-- RSVP Section -->
+<section id="rsvp" class="p-8 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">RSVP</h2>
+        <form id="submitForm" action="{{ url()->secure('submit') }}" method="POST" class="mt-6">
+            @csrf
+            <label for="name" class="block text-lg font-medium mb-3">
+                Full Name
+            </label>
+            <div class="mb-4">
+                <input type="text" name="name" id="nameInput" placeholder="Your Name" class="px-4 py-2 border rounded-lg w-4/5 max-w-xs mx-auto placeholder-gray-800 bg-gray-200" required disabled>
+            </div>
+            <div>    
+                <button type="submit" class="bg-pink-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md hover:bg-pink-600">Submit RSVP</button>
+            </div>    
+        </form>
+        <div id="rsvpMessage" style="margin-top: 20px" class="message"></div>
+
+        <script>
+            document.getElementById('submitForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                const name = document.querySelector('[name="name"]').value;
+
+                fetch('{{ url()->secure('submit') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                    },
+                    body: JSON.stringify({
+                        name: name
                     })
-                        .then(response => response.json())
-                        .then(data => {
-                            document.getElementById('rsvpMessage').innerText = `Dear ${name}, thank you for confirming your attendance! We look forward to celebrating with you.`;
-                        })
-                        .catch(error => {
-                            document.getElementById('rsvpMessage').innerText = 'Something went wrong, please try again.';
-                        });
-                });
-            </script>
-        </div>
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('rsvpMessage').innerText = `Dear ${name}, thank you for confirming your attendance! We look forward to celebrating with you.`;
+                    })
+                    .catch(error => {
+                        document.getElementById('rsvpMessage').innerText = 'Something went wrong, please try again.';
+                    });
+            });
+        </script>
     </div>
-</div>
+</section>
 
+<!-- Gallery Section with Swiper Carousel -->
+<section id="gallery">
+    <div id="default-carousel" class="relative w-full h-full" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96 curved-bottom">
+            <!-- Item 1 -->
+            <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                <img src="{{ asset('images/background1.jpg') }}" class="absolute object-cover block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+            <!-- Item 2 -->
+            <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                <img src="{{ asset('images/background2.jpg') }}" class="absolute object-cover block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+        </div>
+        <!-- Slider indicators -->
+        <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+        </div>
+        <!-- Slider controls -->
+        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-[#4A5568] group-focus:outline-none">
+        <svg class="w-4 h-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="#4A5568" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+        </svg>
+        <span class="sr-only">Previous</span>
+    </span>
+        </button>
+        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-[#4A5568] group-focus:outline-none">
+        <svg class="w-4 h-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="#4A5568" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+        </svg>
+        <span class="sr-only">Next</span>
+    </span>
+        </button>
+    </div>
+</section>
+
+<script>
+    // Optional: You can use this for your carousel behavior if you want auto-sliding
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('[data-carousel-item]');
+    const totalSlides = slides.length;
+
+    const changeSlide = (index) => {
+        // Hide all slides
+        slides.forEach((slide) => {
+            slide.classList.remove('opacity-100');
+            slide.classList.add('opacity-0');
+        });
+
+        // Show the current slide
+        slides[index].classList.remove('opacity-0');
+        slides[index].classList.add('opacity-100');
+    };
+
+    const nextSlide = () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        changeSlide(currentIndex);
+    };
+
+    const prevSlide = () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        changeSlide(currentIndex);
+    };
+
+    // Initialize with the first slide visible
+    changeSlide(currentIndex);
+
+    // Set auto-slide interval
+    setInterval(nextSlide, 5000);  // Auto-slide every 5 seconds
+
+    // Attach event listeners for prev/next buttons
+    document.querySelector('[data-carousel-prev]').addEventListener('click', prevSlide);
+    document.querySelector('[data-carousel-next]').addEventListener('click', nextSlide);
+</script>
+
+    <!-- Footer Section -->
+<footer class="text-black py-4 text-center">
+    <p class="mt-2">© 2025 Charbel & Rita’s Wedding ♡</p>
+    <audio id="myAudio" muted loop>
+        <source src="{{ asset('audio/song1.mp3') }}" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="audioToggle" class="p-3 bg-pink-500 text-white rounded-full shadow-lg hover:bg-pink-600 transition fixed bottom-4 left-4 z-50 text-3xl">
+        ♫
+    </button>
+</footer>
+
+<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const audioButton = document.getElementById("audioToggle");
+
+            // Initialize Plyr without default controls
+            const player = new Plyr('#myAudio', { controls: [] });
+
+            // Toggle play/pause on button click
+            audioButton.addEventListener("click", function () {
+                if (player.paused) {
+                    player.play();  // Play if paused
+                    // audioButton.textContent = "♫"; // Unmute icon
+                } else {
+                    player.pause();
+                    // audioButton.textContent = "🔇"; // Mute icon
+                }
+            });
+        });
+
+        // Function to get query parameter from URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get 'name' from URL and set it in the input field
+        document.addEventListener('DOMContentLoaded', function () {
+            const nameFromURL = getQueryParam('name');
+            if (nameFromURL) {
+                document.getElementById('nameInput').value = nameFromURL;
+            }
+        });
+    </script>
 </body>
 </html>
+
+
+
 

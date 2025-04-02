@@ -25,10 +25,10 @@ class GoogleSheetsService
         $this->spreadsheetId = env('GOOGLE_SHEET_ID');
     }
 
-    public function appendNameToSheet($name, $attending)
+    public function appendNameToSheet($name)
     {
         $values = [
-            [$name, $attending] // Name submitted by the user
+            [$name] // Name submitted by the user
         ];
 
         $body = new \Google_Service_Sheets_ValueRange([
