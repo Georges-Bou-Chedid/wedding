@@ -9,7 +9,7 @@
 
     <meta property="og:title" content="Charbel and Rita's Wedding">
     <meta property="og:description" content="You're invited to celebrate the love between Charbel and Rita">
-    <meta property="og:image" content="{{ asset('images/background.jpg') }}">
+    <meta property="og:image" content="{{ asset('images/main.jpg') }}">
     <meta property="og:url" content="https://invimagic-25a76eef47e3.herokuapp.com/charbel-and-rita">
 
     <link rel="icon" href="{{ asset('rounded-invimagic.png') }}" type="image/png">
@@ -85,7 +85,7 @@
 </head>
 <body class="text-gray-800" onload="countdown()">
 <!-- Main Section with Background Image -->
-<section class="relative bg-cover bg-center wedding-shape" style="background-image: url('{{ asset('images/background.jpg') }}'); height: 100vh;">
+<section class="relative bg-cover bg-center wedding-shape" style="background-image: url('{{ asset('images/main.jpg') }}'); height: 100vh;">
     <div class="absolute inset-0 bg-black opacity-50"></div>
     <div class="absolute inset-0 flex items-center justify-center text-center text-white">
         <div>
@@ -211,7 +211,7 @@
 <section id="rsvp" class="p-8 bg-white">
     <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">RSVP</h2>
-        <form id="submitForm" action="{{ url()->secure('submit') }}" method="POST" class="mt-6">
+        <form id="submitForm" action="{{ url()->secure('/charbel-and-rita/submit') }}" method="POST" class="mt-6">
             @csrf
             <label for="name" class="block text-lg font-medium mb-3">
                 Full Name
@@ -230,7 +230,7 @@
                 event.preventDefault();
                 const name = document.querySelector('[name="name"]').value;
 
-                fetch('{{ url()->secure('submit') }}', {
+                fetch('{{ url()->secure('/charbel-and-rita/submit') }}', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
