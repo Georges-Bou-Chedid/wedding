@@ -334,7 +334,7 @@
 <footer class="text-black py-4 text-center">
     <p class="mt-2">© 2025 Charbel & Rita’s Wedding ♡</p>
     <audio id="myAudio" muted loop>
-        <source src="{{ asset('audio/song1.mp3') }}" type="audio/mp3">
+        <source src="{{ secure_asset('audio/song1.mp3') }}" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
     <button id="audioToggle" class="p-3 bg-pink-500 text-white rounded-full shadow-lg hover:bg-pink-600 transition fixed bottom-4 left-4 z-50 text-3xl">
