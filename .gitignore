@@ -7,7 +7,7 @@
 /storage/*.key
 /storage/logs
 /storage/framework/*
-/storage/app/google-credentials.json
+/storage/google-credentials.json
 
 # Environment files
 .env
