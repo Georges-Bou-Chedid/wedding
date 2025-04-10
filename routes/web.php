@@ -12,14 +12,18 @@ Route::get('/charbel-and-rita', function () {
 });
 
 Route::post('/charbel-and-rita/submit', function (\Illuminate\Http\Request $request, GoogleSheetsService $googleSheetsService) {
-    $name = $request->input('name');
+    $names = $request->input('names');
 
-    if ($name === null || $name === '') {
-        throw new Exception('Name is required');
+    if (empty($names) || !is_array($names)) {
+        throw new Exception('At least one name is required');
     }
 
     try {
-        $googleSheetsService->appendNameToSheet($name);
+        foreach ($names as $name) {
+            if (!empty($name)) {
+                $googleSheetsService->appendNameToSheet($name);
+            }
+        }
         return response()->json(['message' => 'Name submitted successfully!']);
     } catch (\Exception $e) {
         return response()->json(['message' => 'Failed to submit name'], 500);

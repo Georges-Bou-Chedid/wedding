@@ -279,10 +279,10 @@
             <form id="submitForm" action="{{ url()->secure('/charbel-and-rita/submit') }}" method="POST" class="mt-6">
                 @csrf
                 <label for="name" class="block text-lg font-medium mb-3">
-                    Full Name
+                    List of Attendees
                 </label>
-                <div class="mb-4">
-                    <input type="text" name="name" id="nameInput" placeholder="Your Name" class="px-4 py-2 border rounded-lg w-4/5 max-w-xs mx-auto placeholder-gray-800 bg-gray-200" required disabled>
+                <div id="namesContainer" class="mb-4">
+                    <!-- Inputs will be injected here -->
                 </div>
                 <div>    
                     <button type="submit" class="bg-pink-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md hover:bg-pink-600">Submit RSVP</button>
@@ -291,27 +291,74 @@
             <div id="rsvpMessage" style="margin-top: 20px" class="message"></div>
 
             <script>
-                document.getElementById('submitForm').addEventListener('submit', function (event) {
-                    event.preventDefault();
-                    const name = document.querySelector('[name="name"]').value;
+                 // Function to get query parameter from URL
+                function getQueryParam(param) {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get(param);
+                }
 
-                    fetch('{{ url()->secure('/charbel-and-rita/submit') }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
-                        },
-                        body: JSON.stringify({
-                            name: name
+                document.addEventListener('DOMContentLoaded', function () {
+                    const namesParam = getQueryParam('names');
+                    const container = document.getElementById('namesContainer');
+
+                    if (namesParam) {
+                        namesArray = namesParam.split(',').map(name => decodeURIComponent(name.trim()));
+                        renderInputs();
+                    }
+
+                    function renderInputs() {
+                        container.innerHTML = ''; // Clear before re-rendering
+                        namesArray.forEach((name, index) => {
+                            const wrapper = document.createElement('div');
+                            wrapper.className = 'flex justify-center items-center gap-4 mb-4';
+
+                            const input = document.createElement('input');
+                            input.type = 'text';
+                            input.name = 'name[]';
+                            input.value = name;
+                            input.disabled = true;
+                            input.required = true;
+                            input.className = 'px-4 py-2 border rounded-lg w-4/5 max-w-xs placeholder-gray-800 bg-gray-200';
+
+                            const removeBtn = document.createElement('button');
+                            removeBtn.type = 'button';
+                            removeBtn.innerHTML = '&times;'; // Nice X symbol
+                            removeBtn.className = 'w-8 h-8 flex items-center justify-center text-white bg-pink-500 rounded-full hover:bg-red-600 transition duration-200 shadow-md';
+                            removeBtn.title = 'Remove this name';
+                            removeBtn.onclick = function () {
+                                namesArray.splice(index, 1); // Remove from array
+                                renderInputs(); // Re-render UI
+                            };
+
+                            wrapper.appendChild(input);
+                            wrapper.appendChild(removeBtn);
+                            container.appendChild(wrapper);
+                        });
+                    }
+
+                    // Override the form submit to use current namesArray
+                    document.getElementById('submitForm').addEventListener('submit', function (event) {
+                        event.preventDefault();
+
+                        fetch('{{ url()->secure('/charbel-and-rita/submit') }}', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                            },
+                            body: JSON.stringify({
+                                names: namesArray
+                            })
                         })
-                    })
                         .then(response => response.json())
                         .then(data => {
-                            document.getElementById('rsvpMessage').innerText = `Dear ${name}, thank you for confirming your attendance! We look forward to celebrating with you.`;
+                            document.getElementById('rsvpMessage').innerText =
+                                `Dear ${namesArray.join(', ')}, thank you for confirming your attendance! We look forward to celebrating with you.`;
                         })
                         .catch(error => {
                             document.getElementById('rsvpMessage').innerText = 'Something went wrong, please try again.';
                         });
+                    });
                 });
             </script>
         </div>
@@ -466,20 +513,6 @@
                     player.pause();
                 }
             });
-        });
-
-        // Function to get query parameter from URL
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        // Get 'name' from URL and set it in the input field
-        document.addEventListener('DOMContentLoaded', function () {
-            const nameFromURL = getQueryParam('name');
-            if (nameFromURL) {
-                document.getElementById('nameInput').value = nameFromURL;
-            }
         });
     </script>
 </div>
