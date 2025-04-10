@@ -18,8 +18,21 @@ class GoogleSheetsService
         $this->client = new Google_Client();
         $this->client->setApplicationName('Wedding Appointment');
         $this->client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
-        $googleCredentials = json_decode(env('GOOGLE_CREDENTIALS'), true);
-        $this->client->setAuthConfig($googleCredentials); // path to the credentials JSON
+
+        $base64Credentials = env('GOOGLE_CREDENTIALS_BASE64');
+        if (! $base64Credentials) {
+            throw new \Exception('Missing Google credentials.');
+        }
+
+       // Decode the base64 credentials and use them
+        $googleCredentials = json_decode(base64_decode($base64Credentials), true);
+
+        if (! $googleCredentials) {
+            Log::error('Google credentials could not be decoded from the environment variable.');
+            throw new \Exception('Google credentials are not valid.');
+        }
+
+        $this->client->setAuthConfig($googleCredentials); // Use the decoded credentials directly
         $this->client->setAccessType('offline');
         $this->service = new Google_Service_Sheets($this->client);
         $this->spreadsheetId = env('GOOGLE_SHEET_ID');

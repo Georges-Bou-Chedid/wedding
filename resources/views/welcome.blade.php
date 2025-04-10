@@ -276,7 +276,7 @@
     <section id="rsvp" class="p-8 bg-white mt-10">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">RSVP</h2>
-            <form id="submitForm" action="{{ url()->secure('/charbel-and-rita/submit') }}" method="POST" class="mt-6">
+            <form id="submitForm" action="{{ route('submit') }}" method="POST" class="mt-6">
                 @csrf
                 <label for="name" class="block text-lg font-medium mb-3">
                     List of Attendees
@@ -340,7 +340,7 @@
                     document.getElementById('submitForm').addEventListener('submit', function (event) {
                         event.preventDefault();
 
-                        fetch('{{ url()->secure('/charbel-and-rita/submit') }}', {
+                        fetch('{{ route('submit') }}', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',

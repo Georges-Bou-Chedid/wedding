@@ -1,23 +1,54 @@
-/.phpunit.cache
+# Laravel & PHP
+/vendor
 /node_modules
 /public/build
 /public/hot
 /public/storage
 /storage/*.key
-/storage/pail
-/vendor
+/storage/logs
+/storage/framework/*
+/storage/app/google-credentials.json
+
+# Environment files
 .env
 .env.backup
 .env.production
-.phpactor.json
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
+
+# IDE & Editor configurations
+/.idea
+/.vscode
+/.editorconfig
+/.phpstorm
+/.sublime-text
+/.netbeans
+
+# Laravel specific
+/.phpunit.result.cache
+/phpunit.xml
+/phpunit.xml.dist
+
+# Log files
 npm-debug.log
 yarn-error.log
-/auth.json
-/.fleet
-/.idea
-/.nova
-/.vscode
-/.zed
+*.log
+
+# Homestead & Docker configurations
+/Homestead.yaml
+/Homestead.json
+/docker-compose.override.yml
+
+# Generated files
+/public/mix-manifest.json
+/public/css/
+/public/js/
+*.gz
+*.zip
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.swp
+*.swo
