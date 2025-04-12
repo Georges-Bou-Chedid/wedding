@@ -16,7 +16,7 @@ class GoogleSheetsService
     public function __construct()
     {
         $this->client = new Google_Client();
-        $this->client->setApplicationName('Wedding Appointment');
+        $this->client->setApplicationName('Wedding');
         $this->client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
 
         $base64Credentials = env('GOOGLE_CREDENTIALS_BASE64');
