@@ -1,7 +1,7 @@
 {
     "build": {
       "builder": "php",
-      "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT"
+      "startCommand": "composer install && php artisan migrate && php artisan serve --host=0.0.0.0 --port=$PORT"
     },
     "deploy": {
       "builds": ["php"]
