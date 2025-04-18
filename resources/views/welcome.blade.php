@@ -9,10 +9,10 @@
 
     <meta property="og:title" content="Charbel and Rita's Wedding">
     <meta property="og:description" content="You're invited to celebrate the love between Charbel and Rita">
-    <meta property="og:image" content="{{ secure_asset('images/main-compressed.jpg') }}">
-    <meta property="og:url" content="https://invimagic-25a76eef47e3.herokuapp.com/charbel-and-rita">
+    <meta property="og:image" content="{{ secure_asset('images/link-background.jpeg') }}">
+    <meta property="og:url" content="https://wedding-production-41c8.up.railway.app/charbel-and-rita">
 
-    <link rel="icon" href="{{ asset('rounded-invimagic.png') }}" type="image/png">
+    <link rel="icon" href="{{ secure_asset('rounded-invimagic.png') }}" type="image/png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('{{ asset('images/main.jpg') }}') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('{{ asset('images/main-background.jpeg') }}') center/cover no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -89,16 +89,17 @@
                 box-shadow: 0 4px 10px rgba(255, 255, 255, 0.6);
             }
         }
-
         .heart {
-            position: fixed; /* Use fixed instead of absolute */
-            top: -10px; /* Start above the viewport */
-            color: red;
+            position: fixed;
+            top: -10px;
             font-size: 20px;
-            opacity: 0.8;
+            color: transparent; /* Makes it transparent */
+            -webkit-text-stroke: 1.5px white; /* Black outline */
+            opacity: 0.9;
             animation: fall linear infinite;
             will-change: transform, opacity;
-            pointer-events: none; /* Prevents clicking on hearts */
+            pointer-events: none;
+            z-index: 50;
         }
 
         @keyframes fall {
@@ -157,7 +158,7 @@
 
 <div class="content hidden" id="content">
 <!-- Main Section with Background Image -->
-    <section class="relative bg-cover bg-center wedding-shape" style="background-image: url('{{ asset('images/main.jpg') }}'); height: 100vh;">
+    <section class="relative bg-cover bg-center h-screen w-full wedding-shape" style="background-image: url('{{ asset('images/background.jpeg') }}'); height: 100vh;">
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="absolute inset-0 flex items-center justify-center text-center text-white">
             <div>
@@ -194,7 +195,9 @@
                     </div>
                 </div>
                 <div class="mt-8">
-                    <a href="#rsvp" class="bg-pink-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md hover:bg-pink-600">RSVP Now</a>
+                    <a href="#rsvp" class="border border-white text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md">
+                        RSVP Now
+                    </a>
                 </div>
             </div>
         </div>
@@ -242,10 +245,10 @@
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Gift Registry</h2>
             <ul class="mt-6 space-y-4 text-lg text-gray-700">
-                <li>Your presence is the most cherished gift. However, for those who wish to contribute, our Whish Money account detail are below</li>
+                <li>Your presence is the most cherished gift. However, for those who wish to contribute, our Whish Money account detail is provided below</li>
                 <h2 class="text-2xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Whish Account</h2>
                 <li>
-                Acc# 20000
+                Acc# 20382415-03
                 <div style="display: inline-flex; align-items: center; margin-left: 10px;">
                     <button id="copyButton" style="cursor: pointer; background: transparent; border: 1px solid #ccc; padding: 4px 6px; border-radius: 5px; color: #333; font-size: 0.7em;">
                     Copy
@@ -275,17 +278,20 @@
     <!-- RSVP Section -->
     <section id="rsvp" class="p-8 bg-white mt-10">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">RSVP</h2>
+            <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Be Our Guest</h2>
             <form id="submitForm" action="{{ url()->secure('/charbel-and-rita/submit') }}" method="POST" class="mt-6">
                 @csrf
-                <label for="name" class="block text-lg font-medium mb-3">
+                <p class="block text-lg font-medium mb-1 italic">
+                    Please reply before: May 5, 2025
+                    </p>
+                <p class="block text-lg font-medium mb-6 italic">
                     List of Attendees
-                </label>
-                <div id="namesContainer" class="mb-4">
+                </p>
+                <div id="namesContainer" class="mb-6">
                     <!-- Inputs will be injected here -->
                 </div>
                 <div>    
-                    <button type="submit" class="bg-pink-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md hover:bg-pink-600">Submit RSVP</button>
+                    <button type="submit" class="border border-black text-black px-6 py-3 rounded-lg text-lg font-medium shadow-sm">Submit RSVP</button>
                 </div>    
             </form>
             <div id="rsvpMessage" style="margin-top: 20px" class="message"></div>
@@ -323,7 +329,7 @@
                             const removeBtn = document.createElement('button');
                             removeBtn.type = 'button';
                             removeBtn.innerHTML = '&times;'; // Nice X symbol
-                            removeBtn.className = 'w-8 h-8 flex items-center justify-center text-white bg-pink-500 rounded-full hover:bg-red-600 transition duration-200 shadow-md';
+                            removeBtn.className = 'w-8 h-8 flex items-center justify-center border border-black text-black rounded-full transition duration-200 shadow-md';
                             removeBtn.title = 'Remove this name';
                             removeBtn.onclick = function () {
                                 namesArray.splice(index, 1); // Remove from array
@@ -371,11 +377,19 @@
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96 curved-bottom">
                 <!-- Item 1 -->
                 <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
-                    <img src="{{ asset('images/background1.jpg') }}" class="absolute object-cover block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ asset('images/Photo3.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 2 -->
                 <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
-                    <img src="{{ asset('images/background2.jpg') }}" class="absolute object-cover block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <img src="{{ asset('images/Photo2.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                 <!-- Item 3 -->
+                 <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                    <img src="{{ asset('images/Photo1.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <!-- Item 4 -->
+                <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                    <img src="{{ asset('images/Photo4.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
             </div>
             <!-- Slider indicators -->
@@ -449,7 +463,7 @@
             <source src="{{ secure_asset('audio/song1.mp3') }}" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
-        <button id="audioToggle" class="p-3 bg-pink-500 text-white rounded-full shadow-lg hover:bg-pink-600 transition fixed bottom-4 left-4 z-50 text-3xl">
+        <button id="audioToggle" class="p-3 border border-black text-black rounded-full shadow-lg transition fixed bottom-4 left-4 z-50 text-3xl">
             ♫
         </button>
     </footer>
@@ -460,12 +474,14 @@
             setInterval(() => {
                 const heart = document.createElement("div");
                 heart.classList.add("heart");
-                heart.innerHTML = "💗";
+                heart.innerHTML = "♥";
+                // heart.innerHTML = "❤";
+                // heart.innerHTML = "💗";
 
                 // Random position and size
-                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.left = Math.random() * 80 + "vw";
                 heart.style.top = "-10px"; // Start just above the viewport
-                heart.style.fontSize = Math.random() * 20 + 10 + "px";
+                heart.style.fontSize = Math.random() * 35 + 10 + "px";
                 heart.style.animationDuration = Math.random() * 5 + 4 + "s"; 
 
                 document.body.appendChild(heart); // Append directly to body
