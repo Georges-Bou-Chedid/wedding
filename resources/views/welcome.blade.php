@@ -164,7 +164,7 @@
             <div>
                 <h1 class="text-4xl script font-bold">Charbel & Rita</h1>
                 <p class="text-lg mt-2">Are Getting Married!</p>
-                <p class="text-xl mt-2 font-semibold">Saturday, May 31th, 2025</p> <!-- Date added here -->
+                <p class="text-xl mt-2 font-semibold">Saturday, May 31st, 2025</p> <!-- Date added here -->
                 <div style="text-align: center; padding: 30px;">
                     <div id="countdown" class="text-3xl mt-10" style="display: flex; justify-content: center;">
                         <div style="margin: 0 10px;">
@@ -206,8 +206,8 @@
     <!-- Bible Section -->
     <section id="bible-verse" class="p-8 bg-white mt-10">
         <div class="max-w-4xl mx-auto text-center md:p-10" style="font-family: 'Cormorant Upright', serif;">
-            <p class="text-xl text-gray-600 mb-4 md:mb-6">"And over all these virtues put on love, which binds them all together in perfect unity."</p>
-            <p class="text-xl text-gray-600">Colossians 3:14</p>
+            <p class="text-xl text-gray-600 mb-4 md:mb-6">"That is why a man leaves his father and mother and is united to his wife, and they become one flesh."</p>
+            <p class="text-xl text-gray-600">Genesis 2:24</p>
         </div>
     </section>
 
