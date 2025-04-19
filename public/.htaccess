@@ -4,6 +4,8 @@
     </IfModule>
 
     RewriteEngine On
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .

@@ -19,6 +19,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link rel="preload" as="image" href="{{ asset('images/main-background.jpeg') }}?v=1">
+    <link rel="preload" as="image" href="{{ asset('images/background.jpeg') }}?v=1">
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <style>
         body {
@@ -48,7 +50,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('{{ asset('images/main-background.jpeg') }}') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('{{ asset('images/main-background.jpeg') }}?v=1') center/cover no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -158,7 +160,7 @@
 
 <div class="content hidden" id="content">
 <!-- Main Section with Background Image -->
-    <section class="relative bg-cover bg-center h-screen w-full wedding-shape" style="background-image: url('{{ asset('images/background.jpeg') }}'); height: 100vh;">
+    <section class="relative bg-cover bg-center h-screen w-full wedding-shape" style="background-image: url('{{ asset('images/background.jpeg') }}?v=1'); height: 100vh;">
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="absolute inset-0 flex items-center justify-center text-center text-white">
             <div>
