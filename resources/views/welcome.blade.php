@@ -247,7 +247,8 @@
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Gift Registry</h2>
             <ul class="mt-6 space-y-4 text-lg text-gray-700">
-                <li>Your presence is the most cherished gift. However, for those who wish to contribute, our Whish Money account detail is provided below</li>
+                <li>We’re tying the knot and dancing a lot.</li>  
+                <li>Your presence is truly the best gift! But if you’re feeling extra generous (or just hate wrapping gifts), our Whish Money account is ready for your “contribution to our happily ever after.”</li>
                 <h2 class="text-2xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Whish Account</h2>
                 <li>
                 Acc# 20382415-03
@@ -260,7 +261,7 @@
 
                 <script>
                     const copyButton = document.getElementById('copyButton');
-                    const accountNumber = "20000"; // Store the account number directly
+                    const accountNumber = "20382415-03"; // Store the account number directly
 
                     copyButton.addEventListener('click', () => {
                         const tempInput = document.createElement('input');
