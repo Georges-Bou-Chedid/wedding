@@ -153,396 +153,377 @@
     </script>
 </head>
 <body class="text-gray-800">
+<div class="max-w-lg mx-auto relative min-h-screen">
 
-<div class="overlay" id="startOverlay">
-    <div class="tap-box">Tap to start</div>
-</div>
+    <div class="overlay absolute inset-0 z-50" id="startOverlay">
+        <div class="tap-box">Tap to start</div>
+    </div>
 
-<div class="content hidden" id="content">
-<!-- Main Section with Background Image -->
-    <section class="relative bg-cover bg-center h-screen w-full wedding-shape" style="background-image: url('{{ asset('images/background.jpeg') }}?v=1'); height: 100vh;">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="absolute inset-0 flex items-center justify-center text-center text-white">
-            <div>
-                <h1 class="text-4xl script font-bold">Charbel & Rita</h1>
-                <p class="text-lg mt-2">Are Getting Married!</p>
-                <p class="text-xl mt-2 font-semibold">Saturday, May 31st, 2025</p> <!-- Date added here -->
-                <div style="text-align: center; padding: 30px;">
-                    <div id="countdown" class="text-3xl mt-10" style="display: flex; justify-content: center;">
-                        <div style="margin: 0 10px;">
-                            <span id="days" class="font-semibold">00</span>
-                            <div style="font-size: 0.34em;">DAYS</div>
-                        </div>
-                        <div>
-                            <span class="font-semibold">:</span>
-                        </div>
-                        <div style="margin: 0 10px;">
-                            <span id="hours" class="font-semibold">00</span>
-                            <div style="font-size: 0.34em;">HOURS</div>
-                        </div>
-                        <div>
-                            <span class="font-semibold">:</span>
-                        </div>
-                        <div style="margin: 0 10px;">
-                            <span id="minutes" class="font-semibold">00</span>
-                            <div style="font-size: 0.34em;">MINUTES</div>
-                        </div>
-                        <div>
-                            <span class="font-semibold">:</span>
-                        </div>
-                        <div style="margin: 0 10px;">
-                            <span id="seconds" class="font-semibold">00</span>
-                            <div style="font-size: 0.34em;">SECONDS</div>
+    <div class="content hidden" id="content">
+    <!-- Main Section with Background Image -->
+        <section class="relative bg-cover bg-center h-screen w-full wedding-shape" style="background-image: url('{{ asset('images/background.jpeg') }}?v=1'); height: 100vh;">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="absolute inset-0 flex items-center justify-center text-center text-white">
+                <div>
+                    <h1 class="text-4xl script font-bold">Charbel & Rita</h1>
+                    <p class="text-lg mt-2">Are Getting Married!</p>
+                    <p class="text-xl mt-2 font-semibold">Saturday, May 31st, 2025</p> <!-- Date added here -->
+                    <div style="text-align: center; padding: 30px;">
+                        <div id="countdown" class="text-3xl mt-10" style="display: flex; justify-content: center;">
+                            <div style="margin: 0 10px;">
+                                <span id="days" class="font-semibold">00</span>
+                                <div style="font-size: 0.34em;">DAYS</div>
+                            </div>
+                            <div>
+                                <span class="font-semibold">:</span>
+                            </div>
+                            <div style="margin: 0 10px;">
+                                <span id="hours" class="font-semibold">00</span>
+                                <div style="font-size: 0.34em;">HOURS</div>
+                            </div>
+                            <div>
+                                <span class="font-semibold">:</span>
+                            </div>
+                            <div style="margin: 0 10px;">
+                                <span id="minutes" class="font-semibold">00</span>
+                                <div style="font-size: 0.34em;">MINUTES</div>
+                            </div>
+                            <div>
+                                <span class="font-semibold">:</span>
+                            </div>
+                            <div style="margin: 0 10px;">
+                                <span id="seconds" class="font-semibold">00</span>
+                                <div style="font-size: 0.34em;">SECONDS</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#rsvp" class="border border-white text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md">
-                        RSVP Now
-                    </a>
+                    <div class="mt-8">
+                        <a href="#rsvp" class="border border-white text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md">
+                            RSVP Now
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Bible Section -->
-    <section id="bible-verse" class="p-8 bg-white mt-10">
-        <div class="max-w-4xl mx-auto text-center md:p-10" style="font-family: 'Cormorant Upright', serif;">
-            <p class="text-xl text-gray-600 mb-4 md:mb-6">"That is why a man leaves his father and mother and is united to his wife, and they become one flesh."</p>
-            <p class="text-xl text-gray-600">Genesis 2:24</p>
-        </div>
-    </section>
+        <!-- Bible Section -->
+        <section id="bible-verse" class="p-8 bg-white mt-10">
+            <div class="max-w-4xl mx-auto text-center md:p-10" style="font-family: 'Cormorant Upright', serif;">
+                <p class="text-xl text-gray-600 mb-4 md:mb-6">"That is why a man leaves his father and mother and is united to his wife, and they become one flesh."</p>
+                <p class="text-xl text-gray-600">Genesis 2:24</p>
+            </div>
+        </section>
 
-    <!-- Schedule Section -->
-    <section id="schedule" class="p-8 bg-white mt-10">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Schedule</h2>
-            <ul class="mt-6 space-y-4 text-lg text-gray-700">
-                <li><span class="font-bold">6:15 PM</span> - Ceremony</li>
-                <li>
-                    Saint Augustin, Ain Saadeh
-                    <a href="https://maps.app.goo.gl/Fb2eEWgvP3pJGbkv6" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                    </a>
-                </li>
-                <li><span class="font-bold">8:00 PM</span> - A Night of Love & Joy</li>
-                <li>
-                    Santa Preri, Jbeil
-                    <a href="https://maps.app.goo.gl/YYXRPm89CANrY1Fn8" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </section>
+        <!-- Schedule Section -->
+        <section id="schedule" class="p-8 bg-white mt-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Schedule</h2>
+                <ul class="mt-6 space-y-4 text-lg text-gray-700">
+                    <li><span class="font-bold">6:15 PM</span> - Ceremony</li>
+                    <li>
+                        Saint Augustin, Ain Saadeh
+                        <a href="https://maps.app.goo.gl/Fb2eEWgvP3pJGbkv6" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li><span class="font-bold">8:00 PM</span> - A Night of Love & Joy</li>
+                    <li>
+                        Santa Preri, Jbeil
+                        <a href="https://maps.app.goo.gl/YYXRPm89CANrY1Fn8" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-    <!-- Gift Registry Section -->
-    <section id="giftRegistry" class="p-8 bg-white mt-10">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Gift Registry</h2>
-            <ul class="mt-6 space-y-4 text-lg text-gray-700">
-                <li>We’re tying the knot and dancing a lot.</li>  
-                <li>Your presence is truly the best gift! But if you’re feeling extra generous (or just hate wrapping gifts), our Whish Money account is ready for your “contribution to our happily ever after.”</li>
-                <h2 class="text-2xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Whish Account</h2>
-                <li>
-                Acc# 20382415-03
-                <div style="display: inline-flex; align-items: center; margin-left: 10px;">
-                    <button id="copyButton" style="cursor: pointer; background: transparent; border: 1px solid #ccc; padding: 4px 6px; border-radius: 5px; color: #333; font-size: 0.7em;">
-                    Copy
-                    </button>
-                </div>
-                </li>
+        <!-- Gift Registry Section -->
+        <section id="giftRegistry" class="p-8 bg-white mt-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Gift Registry</h2>
+                <ul class="mt-6 space-y-4 text-lg text-gray-700">
+                    <li>We’re tying the knot and dancing a lot.</li>  
+                    <li>Your presence is truly the best gift! But if you’re feeling extra generous (or just hate wrapping gifts), our Whish Money account is ready for your “contribution to our happily ever after.”</li>
+                    <h2 class="text-2xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Whish Account</h2>
+                    <li>
+                    Acc# 20382415-03
+                    <div style="display: inline-flex; align-items: center; margin-left: 10px;">
+                        <button id="copyButton" style="cursor: pointer; background: transparent; border: 1px solid #ccc; padding: 4px 6px; border-radius: 5px; color: #333; font-size: 0.7em;">
+                        Copy
+                        </button>
+                    </div>
+                    </li>
+
+                    <script>
+                        const copyButton = document.getElementById('copyButton');
+                        const accountNumber = "20382415-03"; // Store the account number directly
+
+                        copyButton.addEventListener('click', () => {
+                            const tempInput = document.createElement('input');
+                            tempInput.value = accountNumber;
+                            document.body.appendChild(tempInput);
+                            tempInput.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(tempInput);
+                            alert('Copied to clipboard'); // Optional user feedback
+                        });
+
+                    </script>
+                </ul>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section id="rsvp" class="p-8 bg-white mt-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Be Our Guest</h2>
+                <form id="submitForm" action="{{ url()->secure('/charbel-and-rita/submit') }}" method="POST" class="mt-6">
+                    @csrf
+                    <p class="block text-lg font-medium mb-1 italic">
+                        Please reply before: May 5, 2025
+                        </p>
+                    <p class="block text-lg font-medium mb-6 italic">
+                        List of Attendees
+                    </p>
+                    <div id="namesContainer" class="mb-6">
+                        <!-- Inputs will be injected here -->
+                    </div>
+                    <div>    
+                        <button type="submit" class="border border-black text-black px-6 py-3 rounded-lg text-lg font-medium shadow-sm">Submit RSVP</button>
+                    </div>    
+                </form>
+                <div id="rsvpMessage" style="margin-top: 20px" class="message"></div>
 
                 <script>
-                    const copyButton = document.getElementById('copyButton');
-                    const accountNumber = "20382415-03"; // Store the account number directly
-
-                    copyButton.addEventListener('click', () => {
-                        const tempInput = document.createElement('input');
-                        tempInput.value = accountNumber;
-                        document.body.appendChild(tempInput);
-                        tempInput.select();
-                        document.execCommand('copy');
-                        document.body.removeChild(tempInput);
-                        alert('Copied to clipboard'); // Optional user feedback
-                    });
-
-                </script>
-            </ul>
-        </div>
-    </section>
-
-    <!-- RSVP Section -->
-    <section id="rsvp" class="p-8 bg-white mt-10">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Be Our Guest</h2>
-            <form id="submitForm" action="{{ url()->secure('/charbel-and-rita/submit') }}" method="POST" class="mt-6">
-                @csrf
-                <p class="block text-lg font-medium mb-1 italic">
-                    Please reply before: May 5, 2025
-                    </p>
-                <p class="block text-lg font-medium mb-6 italic">
-                    List of Attendees
-                </p>
-                <div id="namesContainer" class="mb-6">
-                    <!-- Inputs will be injected here -->
-                </div>
-                <div>    
-                    <button type="submit" class="border border-black text-black px-6 py-3 rounded-lg text-lg font-medium shadow-sm">Submit RSVP</button>
-                </div>    
-            </form>
-            <div id="rsvpMessage" style="margin-top: 20px" class="message"></div>
-
-            <script>
-                 // Function to get query parameter from URL
-                function getQueryParam(param) {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    return urlParams.get(param);
-                }
-
-                document.addEventListener('DOMContentLoaded', function () {
-                    const namesParam = getQueryParam('names');
-                    const container = document.getElementById('namesContainer');
-
-                    if (namesParam) {
-                        namesArray = namesParam.split(',').map(name => decodeURIComponent(name.trim()));
-                        renderInputs();
+                    // Function to get query parameter from URL
+                    function getQueryParam(param) {
+                        const urlParams = new URLSearchParams(window.location.search);
+                        return urlParams.get(param);
                     }
 
-                    function renderInputs() {
-                        container.innerHTML = ''; // Clear before re-rendering
-                        namesArray.forEach((name, index) => {
-                            const wrapper = document.createElement('div');
-                            wrapper.className = 'flex justify-center items-center gap-4 mb-4';
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const namesParam = getQueryParam('names');
+                        const container = document.getElementById('namesContainer');
 
-                            const input = document.createElement('input');
-                            input.type = 'text';
-                            input.name = 'name[]';
-                            input.value = name;
-                            input.disabled = true;
-                            input.required = true;
-                            input.className = 'px-4 py-2 border rounded-lg w-4/5 max-w-xs placeholder-gray-800 bg-gray-200';
+                        if (namesParam) {
+                            namesArray = namesParam.split(',').map(name => decodeURIComponent(name.trim()));
+                            renderInputs();
+                        }
 
-                            const removeBtn = document.createElement('button');
-                            removeBtn.type = 'button';
-                            removeBtn.innerHTML = '&times;'; // Nice X symbol
-                            removeBtn.className = 'w-8 h-8 flex items-center justify-center border border-black text-black rounded-full transition duration-200 shadow-md';
-                            removeBtn.title = 'Remove this name';
-                            removeBtn.onclick = function () {
-                                namesArray.splice(index, 1); // Remove from array
-                                renderInputs(); // Re-render UI
-                            };
+                        function renderInputs() {
+                            container.innerHTML = ''; // Clear before re-rendering
+                            namesArray.forEach((name, index) => {
+                                const wrapper = document.createElement('div');
+                                wrapper.className = 'flex justify-center items-center gap-4 mb-4';
 
-                            wrapper.appendChild(input);
-                            wrapper.appendChild(removeBtn);
-                            container.appendChild(wrapper);
-                        });
-                    }
+                                const input = document.createElement('input');
+                                input.type = 'text';
+                                input.name = 'name[]';
+                                input.value = name;
+                                input.disabled = true;
+                                input.required = true;
+                                input.className = 'px-4 py-2 border rounded-lg w-4/5 max-w-xs placeholder-gray-800 bg-gray-200';
 
-                    // Override the form submit to use current namesArray
-                    document.getElementById('submitForm').addEventListener('submit', function (event) {
-                        event.preventDefault();
+                                const removeBtn = document.createElement('button');
+                                removeBtn.type = 'button';
+                                removeBtn.innerHTML = '&times;'; // Nice X symbol
+                                removeBtn.className = 'w-8 h-8 flex items-center justify-center border border-black text-black rounded-full transition duration-200 shadow-md';
+                                removeBtn.title = 'Remove this name';
+                                removeBtn.onclick = function () {
+                                    namesArray.splice(index, 1); // Remove from array
+                                    renderInputs(); // Re-render UI
+                                };
 
-                        fetch('{{ url()->secure('/charbel-and-rita/submit') }}', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
-                            },
-                            body: JSON.stringify({
-                                names: namesArray
+                                wrapper.appendChild(input);
+                                wrapper.appendChild(removeBtn);
+                                container.appendChild(wrapper);
+                            });
+                        }
+
+                        // Override the form submit to use current namesArray
+                        document.getElementById('submitForm').addEventListener('submit', function (event) {
+                            event.preventDefault();
+
+                            fetch('{{ url()->secure('/charbel-and-rita/submit') }}', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                                },
+                                body: JSON.stringify({
+                                    names: namesArray
+                                })
                             })
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            document.getElementById('rsvpMessage').innerText =
-                                `Dear ${namesArray.join(', ')}, thank you for confirming your attendance! We look forward to celebrating with you.`;
-                        })
-                        .catch(error => {
-                            document.getElementById('rsvpMessage').innerText = 'Something went wrong, please try again.';
+                            .then(response => response.json())
+                            .then(data => {
+                                document.getElementById('rsvpMessage').innerText =
+                                    `Dear ${namesArray.join(', ')}, thank you for confirming your attendance! We look forward to celebrating with you.`;
+                            })
+                            .catch(error => {
+                                document.getElementById('rsvpMessage').innerText = 'Something went wrong, please try again.';
+                            });
                         });
                     });
+                </script>
+            </div>
+        </section>
+
+        <!-- Gallery Section with Swiper Carousel -->
+        <section id="gallery" class="mt-10">
+            <div id="default-carousel" class="relative w-full h-full" data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative h-56 overflow-hidden rounded-lg md:h-96 curved-bottom">
+                    <!-- Item 1 -->
+                    <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                        <img src="{{ asset('images/Photo3.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                        <img src="{{ asset('images/Photo2.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                        <img src="{{ asset('images/Photo1.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                        <img src="{{ asset('images/Photo4.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                        <img src="{{ asset('images/link-background.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                        <img src="{{ asset('images/Photo5.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 7 -->
+                    <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                        <img src="{{ asset('images/Photo6.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 8 -->
+                    <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                        <img src="{{ asset('images/Photo7.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                </div>
+                <!-- Slider indicators -->
+                <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                </div>
+                <!-- Slider controls -->
+                <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-[#4A5568] group-focus:outline-none">
+                <svg class="w-4 h-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="#4A5568" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                </svg>
+                <span class="sr-only">Previous</span>
+            </span>
+                </button>
+                <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-[#4A5568] group-focus:outline-none">
+                <svg class="w-4 h-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="#4A5568" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                </svg>
+                <span class="sr-only">Next</span>
+            </span>
+                </button>
+            </div>
+        </section>
+
+        <script>
+            // Optional: You can use this for your carousel behavior if you want auto-sliding
+            let currentIndex = 0;
+            const slides = document.querySelectorAll('[data-carousel-item]');
+            const totalSlides = slides.length;
+
+            const changeSlide = (index) => {
+                // Hide all slides
+                slides.forEach((slide) => {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0');
                 });
-            </script>
-        </div>
-    </section>
 
-    <!-- Gallery Section with Swiper Carousel -->
-    <section id="gallery" class="mt-10">
-        <div id="default-carousel" class="relative w-full h-full" data-carousel="slide">
-            <!-- Carousel wrapper -->
-            <div class="relative h-56 overflow-hidden rounded-lg md:h-96 curved-bottom">
-                <!-- Item 1 -->
-                <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
-                    <img src="{{ asset('images/Photo3.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 2 -->
-                <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
-                    <img src="{{ asset('images/Photo2.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                 <!-- Item 3 -->
-                 <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
-                    <img src="{{ asset('images/Photo1.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 4 -->
-                <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
-                    <img src="{{ asset('images/Photo4.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 5 -->
-                <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
-                    <img src="{{ asset('images/link-background.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 6 -->
-                <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
-                    <img src="{{ asset('images/Photo5.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 7 -->
-                <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
-                    <img src="{{ asset('images/Photo6.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 8 -->
-                <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
-                    <img src="{{ asset('images/Photo7.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-            </div>
-            <!-- Slider indicators -->
-            <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-            </div>
-            <!-- Slider controls -->
-            <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-[#4A5568] group-focus:outline-none">
-            <svg class="w-4 h-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="#4A5568" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-            </svg>
-            <span class="sr-only">Previous</span>
-        </span>
-            </button>
-            <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-[#4A5568] group-focus:outline-none">
-            <svg class="w-4 h-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="#4A5568" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-            </svg>
-            <span class="sr-only">Next</span>
-        </span>
-            </button>
-        </div>
-    </section>
+                // Show the current slide
+                slides[index].classList.remove('opacity-0');
+                slides[index].classList.add('opacity-100');
+            };
 
-    <script>
-        // Optional: You can use this for your carousel behavior if you want auto-sliding
-        let currentIndex = 0;
-        const slides = document.querySelectorAll('[data-carousel-item]');
-        const totalSlides = slides.length;
+            const nextSlide = () => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                changeSlide(currentIndex);
+            };
 
-        const changeSlide = (index) => {
-            // Hide all slides
-            slides.forEach((slide) => {
-                slide.classList.remove('opacity-100');
-                slide.classList.add('opacity-0');
-            });
+            const prevSlide = () => {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                changeSlide(currentIndex);
+            };
 
-            // Show the current slide
-            slides[index].classList.remove('opacity-0');
-            slides[index].classList.add('opacity-100');
-        };
-
-        const nextSlide = () => {
-            currentIndex = (currentIndex + 1) % totalSlides;
+            // Initialize with the first slide visible
             changeSlide(currentIndex);
-        };
 
-        const prevSlide = () => {
-            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-            changeSlide(currentIndex);
-        };
+            // Set auto-slide interval
+            setInterval(nextSlide, 5000);  // Auto-slide every 5 seconds
 
-        // Initialize with the first slide visible
-        changeSlide(currentIndex);
+            // Attach event listeners for prev/next buttons
+            document.querySelector('[data-carousel-prev]').addEventListener('click', prevSlide);
+            document.querySelector('[data-carousel-next]').addEventListener('click', nextSlide);
+        </script>
 
-        // Set auto-slide interval
-        setInterval(nextSlide, 5000);  // Auto-slide every 5 seconds
+            <!-- Footer Section -->
+        <footer class="text-black py-4 text-center">
+            <p class="mt-2">© 2025 Charbel & Rita’s Wedding ♡</p>
+            <audio id="myAudio" muted loop>
+                <source src="{{ secure_asset('audio/song.mp3') }}" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <button id="audioToggle" class="p-3 border border-black text-black rounded-full shadow-lg transition fixed bottom-4 left-4 z-50 text-3xl">
+                ♫
+            </button>
+        </footer>
 
-        // Attach event listeners for prev/next buttons
-        document.querySelector('[data-carousel-prev]').addEventListener('click', prevSlide);
-        document.querySelector('[data-carousel-next]').addEventListener('click', nextSlide);
-    </script>
+        <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+        <script>
+            function createHearts() {
+                setInterval(() => {
+                    const heart = document.createElement("div");
+                    heart.classList.add("heart");
+                    const size = Math.random() * 20 + 20; // size in px
+                    heart.innerHTML = `
+                        <svg viewBox="0 0 32 29.6" width="${size}" height="${size}" fill="transparent" stroke="white" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.6,0c-3.4,0-6.4,2.1-7.6,5.2C14.8,2.1,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,5.2,4.2,9.4,10.6,15.2l5.4,5l5.4-5
+                            C27.8,17.8,32,13.6,32,8.4C32,3.8,28.2,0,23.6,0z"/>
+                        </svg>
+                        `;
 
-        <!-- Footer Section -->
-    <footer class="text-black py-4 text-center">
-        <p class="mt-2">© 2025 Charbel & Rita’s Wedding ♡</p>
-        <audio id="myAudio" muted loop>
-            <source src="{{ secure_asset('audio/song.mp3') }}" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
-        <button id="audioToggle" class="p-3 border border-black text-black rounded-full shadow-lg transition fixed bottom-4 left-4 z-50 text-3xl">
-            ♫
-        </button>
-    </footer>
+                    // Random position and size
+                    heart.style.left = Math.random() * 100 + "vw";
+                    heart.style.top = "-10px";
+                    heart.style.animationDuration = Math.random() * 5 + 3 + "s";
 
-    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-    <script>
-        function createHearts() {
-            setInterval(() => {
-                const heart = document.createElement("div");
-                heart.classList.add("heart");
-                heart.innerHTML = `
-                    <svg viewBox="0 0 32 29.6" width="28" height="28" fill="transparent" stroke="white" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M23.6,0c-3.4,0-6.4,2.1-7.6,5.2C14.8,2.1,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,5.2,4.2,9.4,10.6,15.2l5.4,5l5.4-5
-                        C27.8,17.8,32,13.6,32,8.4C32,3.8,28.2,0,23.6,0z"/>
-                    </svg>
-                    `;
+                    document.body.appendChild(heart);
 
-                // Random position and size
-                heart.style.left = Math.random() * 100 + "vw";
-                heart.style.top = "-10px";
-                const size = Math.random() * 40 + 15; // size in px
-                heart.style.width = size + "px";
-                heart.style.height = size + "px";
-                heart.style.animationDuration = Math.random() * 5 + 4 + "s";
-
-                document.body.appendChild(heart);
-
-                setTimeout(() => {
-                    heart.remove();
-                }, 5000);
-            }, 1000);
-        }
-
-         document.getElementById("startOverlay").addEventListener("click", function() {
-            this.classList.add("opacity-0"); // Fade out
-            setTimeout(() => {
-                this.classList.add("hidden"); // Hide completely after fade
-                document.getElementById("content").classList.remove("hidden"); // Show main content
-                createHearts();
-            }, 500);
-
-            const player = new Plyr('#myAudio', { controls: [] });
-            if (player.muted) {
-                player.muted = false; // Unmute
-                player.play();
-            } else if (player.paused) {
-                player.play();
-            } else {
-                player.pause();
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }, 900);
             }
-        });
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const audioButton = document.getElementById("audioToggle");
+            document.getElementById("startOverlay").addEventListener("click", function() {
+                this.classList.add("opacity-0"); // Fade out
+                setTimeout(() => {
+                    this.classList.add("hidden"); // Hide completely after fade
+                    document.getElementById("content").classList.remove("hidden"); // Show main content
+                    createHearts();
+                }, 500);
 
-            // Initialize Plyr without default controls
-            const player = new Plyr('#myAudio', { controls: [] });
-
-            // Toggle play/pause on button click
-            audioButton.addEventListener("click", function () {
+                const player = new Plyr('#myAudio', { controls: [] });
                 if (player.muted) {
                     player.muted = false; // Unmute
                     player.play();
@@ -552,8 +533,27 @@
                     player.pause();
                 }
             });
-        });
-    </script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const audioButton = document.getElementById("audioToggle");
+
+                // Initialize Plyr without default controls
+                const player = new Plyr('#myAudio', { controls: [] });
+
+                // Toggle play/pause on button click
+                audioButton.addEventListener("click", function () {
+                    if (player.muted) {
+                        player.muted = false; // Unmute
+                        player.play();
+                    } else if (player.paused) {
+                        player.play();
+                    } else {
+                        player.pause();
+                    }
+                });
+            });
+        </script>
+    </div>
 </div>
 </body>
 </html>
