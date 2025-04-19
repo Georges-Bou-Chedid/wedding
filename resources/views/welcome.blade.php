@@ -391,6 +391,22 @@
                 <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
                     <img src="{{ asset('images/Photo4.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
+                <!-- Item 5 -->
+                <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                    <img src="{{ asset('images/link-background.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <!-- Item 6 -->
+                <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                    <img src="{{ asset('images/Photo5.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <!-- Item 7 -->
+                <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                    <img src="{{ asset('images/Photo6.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
+                <!-- Item 8 -->
+                <div class="absolute opacity-0 transition-opacity duration-700 ease-in-out inset-0" data-carousel-item>
+                    <img src="{{ asset('images/Photo7.jpeg') }}" class="absolute object-cover object-center block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                </div>
             </div>
             <!-- Slider indicators -->
             <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
