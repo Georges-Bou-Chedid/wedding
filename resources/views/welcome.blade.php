@@ -349,6 +349,9 @@
                         // Override the form submit to use current namesArray
                         document.getElementById('submitForm').addEventListener('submit', function (event) {
                             event.preventDefault();
+                            const submitButton = this.querySelector('button[type="submit"]');
+                            submitButton.disabled = true;
+                            submitButton.innerText = 'Submitting...'; // Optional: visual feedback
 
                             fetch('{{ url()->secure('/charbel-and-rita/submit') }}', {
                                 method: 'POST',
@@ -364,6 +367,7 @@
                             .then(data => {
                                 document.getElementById('rsvpMessage').innerText =
                                     `Dear ${namesArray.join(', ')}, thank you for confirming your attendance! We look forward to celebrating with you.`;
+                                submitButton.innerText = 'Done';
                             })
                             .catch(error => {
                                 document.getElementById('rsvpMessage').innerText = 'Something went wrong, please try again.';
