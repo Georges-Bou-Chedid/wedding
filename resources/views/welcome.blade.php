@@ -216,7 +216,7 @@
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl font-bold text-gray-900" style="font-family: 'Cormorant Upright', serif;">Schedule</h2>
             <ul class="mt-6 space-y-4 text-lg text-gray-700">
-                <li><span class="font-bold">6:30 PM</span> - Ceremony</li>
+                <li><span class="font-bold">6:15 PM</span> - Ceremony</li>
                 <li>
                     Saint Augustin, Ain Saadeh
                     <a href="https://maps.app.goo.gl/Fb2eEWgvP3pJGbkv6" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center;">
@@ -460,7 +460,7 @@
     <footer class="text-black py-4 text-center">
         <p class="mt-2">© 2025 Charbel & Rita’s Wedding ♡</p>
         <audio id="myAudio" muted loop>
-            <source src="{{ secure_asset('audio/song1.mp3') }}" type="audio/mp3">
+            <source src="{{ secure_asset('audio/song.mp3') }}" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
         <button id="audioToggle" class="p-3 border border-black text-black rounded-full shadow-lg transition fixed bottom-4 left-4 z-50 text-3xl">
@@ -474,23 +474,27 @@
             setInterval(() => {
                 const heart = document.createElement("div");
                 heart.classList.add("heart");
-                heart.innerHTML = "♥";
-                // heart.innerHTML = "❤";
-                // heart.innerHTML = "💗";
+                heart.innerHTML = `
+                    <svg viewBox="0 0 32 29.6" width="28" height="28" fill="transparent" stroke="white" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23.6,0c-3.4,0-6.4,2.1-7.6,5.2C14.8,2.1,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,5.2,4.2,9.4,10.6,15.2l5.4,5l5.4-5
+                        C27.8,17.8,32,13.6,32,8.4C32,3.8,28.2,0,23.6,0z"/>
+                    </svg>
+                    `;
 
                 // Random position and size
-                heart.style.left = Math.random() * 80 + "vw";
-                heart.style.top = "-10px"; // Start just above the viewport
-                heart.style.fontSize = Math.random() * 35 + 10 + "px";
-                heart.style.animationDuration = Math.random() * 5 + 4 + "s"; 
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.top = "-10px";
+                const size = Math.random() * 40 + 15; // size in px
+                heart.style.width = size + "px";
+                heart.style.height = size + "px";
+                heart.style.animationDuration = Math.random() * 5 + 4 + "s";
 
-                document.body.appendChild(heart); // Append directly to body
+                document.body.appendChild(heart);
 
-                // Remove heart after animation ends
                 setTimeout(() => {
                     heart.remove();
                 }, 5000);
-            }, 600);
+            }, 1000);
         }
 
          document.getElementById("startOverlay").addEventListener("click", function() {
